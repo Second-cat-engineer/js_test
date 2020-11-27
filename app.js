@@ -1,152 +1,67 @@
-//alert(1);
-//var name = 'sa'
-//const lastName = 'asd'
-//let age = 254
-//name = 'asdf'
+// number
+/*
+const num = 42 //integer
+const float = 42.42 // float
+const pow = 10e3
 
-//console.log(name)
+console.log('Max_safe_integer', Number.MAX_SAFE_INTEGER)
+console.log('Math.pow 53', Math.pow(2, 53) - 1)
+console.log('Max value', Number.MAX_VALUE)
 
-// console.log('Name: ' + name + ', age' + age)
-// console.log(age)
-// var lastName = prompt('Введите имя')
-// alert(lastName)
+console.log('Pssitive infinity', Number.POSITIVE_INFINITY)
+console.log('Pssitive infinity', Number.NEGATIVE_INFINITY)
+console.log('2 / 0', 2/0)
+console.log(Number.NaN)
 
-
-//  Операторы
-// const currentYear = 2020
-// const birthYear = 1993
-// const age = currentYear - birthYear
-// console.log(age)
-
-
-// let currentYear = 2020
-//
-// const a = 10
-// const b = 5
-// let c = 32
-//
-// c += a // c = c + a
-// c -= a // c = c - a
-// c *= a // c = c * a
-// c /= a // c = c / a
-//
-// console.log(a + b)
-// console.log(a - b)
-// console.log(a * b)
-// console.log(a / b)
-// console.log(++currentYear)
-// console.log(--currentYear)
-// console.log(c)
+const weird = 2 / undefined
+console.log(Number.isNaN(weird))
+console.log(Number.isNaN(43))
+console.log(Number.isFinite(Infinity))
+console.log(Number.isFinite(42))
 
 
-// Типы данных
-// const isProgrammer = true
-// const name = 'adf'
-// const age = 4
-// var x
-//
-// console.log(typeof isProgrammer)
-// console.log(typeof name)
-// console.log(typeof age)
-// console.log(typeof x)
-// console.log(null)
+const stringInt = '42'
+const stringFloat = '42.42'
+console.log(stringInt + 2)  //422
+console.log(Number.parseInt(stringInt) + 2)  //44 Преобразовывает к числу
+console.log(parseInt(stringInt) + 2)  //44
+console.log(Number(stringInt) + 2)  //44
+console.log(+stringInt + 2)  //44
 
-// Приоритет операторов
-// const fullAge = 27
-// const birthYear = 1993
-// const currentYear = 2020
-//
-// const isFullAge = currentYear - birthYear >= fullAge
-// console.log(isFullAge)
+// parseInt работает с интежерами, поэтому отбрасывает дробную часть
 
+console.log(0.4+0.2)
+console.log(2/5 + 1/5)
+console.log((0.4+0.2).toFixed(2))
+console.log(parseFloat((0.4+0.2).toFixed(2)))*/
 
-//Условные операторы
-// == сравнение без учета типов данных
-// === сравнивается и тип данных
+// Bigint
+/*console.log(Number.MAX_SAFE_INTEGER)
+console.log(typeof 9007199254740991239999) // number
+console.log(typeof 9007199254740991239999n) // bigint
+//console.log(typeof 9007199254740991239999.2442n) // err
+console.log(9007199254740991239999n - 900719925474099123999n) // bigint
 
-// const courseStatus = 'readyd' // ready, fail, pending
-// if (courseStatus === 'ready') {
-//     console.log('курс готов')
-// } else if (courseStatus === 'pending') {
-//     console.log('курс в разработке')
-// } else {
-//     console.log('err')
-// }
-//
-//
-// const isReady = true
-// // if (isReady) {
-// //     console.log('Все готово')
-// // } else {
-// //     console.log('Все не готово')
-// // }
-// isReady ? console.log('Все готово') : console.log('Все не готово')
+//console.log(10n - 4) // err
+console.log(parseInt('23') - 4) // err*/
 
-// Функции
-// function calcAge(year) {
-//     return 2020 - year
-// }
-// // const myAge = calcAge(1993)
-// // console.log(myAge)
-//
-// function logInfoAbout(name, year) {
-//     const age = calcAge(year)
-//
-//     if (age > 0 ) {
-//         console.log(name + age)
-//     } else {
-//         console.log('err')
-//     }
-// }
-// logInfoAbout('saf', 1993)
+//Math
+console.log(Math.PI)
+console.log(Math.sqrt(25))
+console.log(Math.pow(5, 2))
+console.log(Math.abs(-4))
+console.log(Math.max(4, 5, 42, 213, 42))
+console.log(Math.min(4, 5, 42, 213, 42))
+console.log(Math.floor(4.9)) // округление в меньшую сторону
+console.log(Math.ceil(4.9)) // округление в большую сторону
+console.log(Math.round(4.9)) // округление в ближайшую сторону
+console.log(Math.trunc(4.9)) // возвращает целую часть путем удаления всех дробных
+console.log(Math.random())
 
-// array
-// const cars = ['bmv', 'mazda', 'kia']
-// // const cars = new Array('bmv', 'mazda', 'kia')
-// //console.log(cars[1])
-// console.log(cars.length)
-// console.log(cars[1])
-// console.log(cars[2])
-//
-// cars[0] = 'lada'
-// cars[5] = 'audi'
-// cars[cars.length] = 'new'
-// console.log(cars)
-
-// циклы
-const cars = ['first', 'second', 3, 4]
-
-for (let i = 0; i < cars.length; i++) {
-    console.log(cars[i])
+// example
+function getRandomBetween(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(getRandomBetween(10, 42));
 
