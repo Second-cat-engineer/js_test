@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+    <button class="btn">Жми</button>
+    <button class="btn">Жми</button>
+    <button class="btn">Жми</button>
+    <script>
+        /*//повесили обработчик
+        $(document).ready(function () {
+            $(".btn").click(function () {
+                alert('thanks, jQuery')
+            });
+        });*/
+        //$(".btn") // если селект идет по классу, то точка .
+        //$("#btn") // если селект идет по id, то точка #
+
+        $(".btn").click(function () {
+            alert('thanks, jQuery')
+        });
+    </script>
+
+<script>
+    // если кнопок было бы несколько и для каждого необходимо одинаковый обработчик, то нативным js необходимо
+    // написать цикл, который будет пробегаться по каждому элементу баттон
+    /*window.onload = function () {
+        var btns = document.getElementsByClassName('btn');
+        for (var i in btns) {
+            var btn = btns[i];
+            btn.onclick = function () {
+                alert('thanks');
+            }
+        }
+    }*/
+</script>
+
+
+
+<div class="container">
+    <button>Жми</button>
+    <button>Жми</button>
+    <button>Жми</button>
+    <button>Жми</button>
+    <button>Жми</button>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.container button').click(function () {
+            alert('qwer');
+        });
+    });
+    // вот как это выглядит на нативном js
+    /*window.onload = function () {
+        var container = document.getElementsByClassName('container')[0];
+        var childs = container.getElementsByTagName('button');
+        for (var i in childs) {
+            var btn = childs[i];
+            btn.onclick = function () {
+                alert('asdf');
+            }
+        }
+    }*/
+</script>
+
+</body>
+</html>

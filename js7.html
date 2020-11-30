@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- <body onload="onload"> -->
+<script>
+    /*function onLoad() {
+        document.getElementsByClassName('btn')[0].onclick = function () {
+            alert('thanks');
+        }
+    }*/
+    // В таком случае будет исключение то что свойство onclick не определено
+    // document.getElementsByClassName('btn')[0].onclick = function () {
+    //     alert('thanks');
+    // }
+    window.onload = function () {
+        document.getElementsByClassName('btn')[0].onclick = function () {
+            alert('thanks');
+        }
+    }
+
+</script>
+
+<div onclick="divOnClick()"> Hello </div>
+<span id="click"> abra-cadabra </span>
+<button class="btn">Жми</button>
+
+<script>
+    function divOnClick() {
+        alert('hi');
+    }
+
+    document.getElementById('click').onclick = function () {
+        alert('click');
+        //divOnClick();
+    };
+</script>
+</body>
+</html>

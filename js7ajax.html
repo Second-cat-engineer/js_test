@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        // with jquery
+        $(document).ready(function () {
+            $('#ajaxBTN').click(function () {
+                $.ajax({
+                    url: 'http://ws.mtwin.ru/productservice/api/products/newproducts',
+                    success: function (html) {
+                        $(html).each(function (i, obj) {
+                            alert(obj.name)
+                        });
+                        /*
+                        for (var i in html) {
+                            alert(html[i].name)
+                        }
+                        */
+                    }
+                });
+            });
+        });
+
+        //без использования jquery
+        /*window.onload = function () {
+            document.getElementById('ajaxBTN').onclick = function () {
+                var xhttp = new XMLHttpRequest();
+                xhttp.open('GET', 'http://ws.mtwin.ru/productservice/api/products/newproducts', true);
+                xhttp.setRequestHeader('Content-type', 'application/json; charset=utf8');
+                xhttp.send();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        alert(this.responseText);
+                    }
+                }
+            }
+        }*/
+    </script>
+
+<button id="ajaxBTN">
+    ajax
+</button>
+
+</body>
+</html>
