@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<img width="100" height="100">
+<img width="100" height="100">
+<img width="100" height="100">
+<img width="100" height="100">
+
+<a href="#">Link</a>
+<a href="#">Link</a>
+<a href="#">Link</a>
+<a href="#">Link</a>
+<a href="#">Link</a>
+
+<form>
+    <input type="submit" value="send">
+</form>
+<div id="header">
+    sdf
+</div>
+
+<script>
+    alert(document.getElementById("header"));
+
+
+
+    var doct = document.doctype;
+    console.log(doct);
+    console.log(document.documentElement.clientHeight); // длина и ширина рабочей области
+    console.log(document.documentElement.clientWidth);
+
+    //document.documentElement.style.backgroundColor = "green";
+    //document.body.style.backgroundColor = "green";
+
+
+    var images = document.images;
+    for (var i = 0; i < images.length; i++) {
+        images[i].src = "/home/yaylyaev/Pictures/test.png";
+    }
+
+    var links = document.links;
+    for (var j = 0; j < links.length; j++) {
+        links[j].href = "http://google.com"
+    }
+
+    //document.forms[0].submit();
+
+</script>
+
+</body>
+</html>

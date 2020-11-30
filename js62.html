@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li id="saf">
+        <span>first</span>
+        <ul>
+            <li>1</li>
+            <li>1</li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    var st = document.body;
+    var newDiv = document.createElement('div');
+    var newDivText = document.createTextNode('this is div');
+    newDiv.append(newDivText);
+    st.append(newDiv);
+
+
+    // var startElem = document.getElementById('saf');
+    // var newLi = document.createElement('li');
+    // var newLiText = document.createTextNode('new li');
+    // newLi.append(newLiText);
+    //
+    // startElem.append(newLi);
+</script>
+
+</body>
+</html>

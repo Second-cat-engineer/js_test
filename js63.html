@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li>
+        <span> punct 1</span>
+        <ul>
+            <li>
+                <span> punct 1.1. </span>
+            </li>
+            <li id="saf">
+                <span> punct 1.2. </span>
+                <ul>
+                    <li> <span> punct 1.2.1 </span></li>
+                    <li> <span> punct 1.2.2 </span></li>
+                </ul>
+            </li>
+            <li>
+                punct 1.3.
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    var root = document.getElementById('saf').getElementsByTagName('ul')[0];
+    console.log(root)
+
+    root.insertAdjacentHTML('beforebegin', '<span> -dopolnenie k punctu 1.2 </span>');
+    root.insertAdjacentHTML('afterbegin', '<li> dopolnenie k punctu 1.2 </li>');
+    root.insertAdjacentHTML('beforeend', '<li> dopolnenie k punctu 1.2 </li>');
+</script>
+
+
+
+</body>
+</html>

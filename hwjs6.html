@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li>
+        <span> name </span>
+        <ul>
+            <li>level</li>
+            <li>country</li>
+            <li>price</li>
+        </ul>
+    </li>
+    <li>
+        // то же самое
+    </li>
+</ul>
+
+
+
+<script>
+    var auto = [
+        { name: 'audi1', level: 2000, country: 'usa', price: 2},
+        { name: 'audi2', level: 2000, country: 'usa', price: 2},
+        { name: 'audi3', level: 2000, country: 'usa', price: 2},
+        { name: 'audi4', level: 2000, country: 'usa', price: 2},
+        { name: 'audi5', level: 2000, country: 'usa', price: 2},
+    ];
+
+    var root = document.body;
+    var newUl = document.createElement('ul');
+    newUl.className = 'auto';
+    root.append(newUl);
+
+    var start = document.getElementsByClassName('auto');
+    console.log(start);
+    for (var i = 0; i < auto.length; i++) {
+        var li = document.createElement('li');
+        var liText = document.createTextNode(auto[i].name);
+        li.append(liText);
+        console.log(liText);
+        start.appendChild(li);
+    }
+
+
+</script>
+
+</body>
+</html>

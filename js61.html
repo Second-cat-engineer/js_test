@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="someClass1 someClass2 someClass3" id="someId" some-attribute="i am el"> i am </div>
+
+<script>
+    var elem = document.getElementById('someId');
+
+    console.log(elem.id);
+    console.log(elem.tagName);
+    console.log(elem.className);
+    console.log(elem.classList.length);
+
+    for (var i = 0; i < elem.classList.length; i++) {
+        console.log(elem.classList[i]);
+    }
+
+    console.log(elem.hasAttribute('some-attribute'));
+    console.log(elem.getAttribute('some-attribute'));
+
+    elem.setAttribute("some-attribute", 'yes, i am el');
+    console.log(elem.getAttribute('some-attribute'));
+
+    elem.removeAttribute('some-attribute');
+    console.log(elem.hasAttribute('some-attribute'));
+
+
+
+</script>
+</body>
+</html>
