@@ -5,28 +5,40 @@
     <title>Title</title>
 </head>
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <h1 id="hello" class="sss">hi</h1>
+    <h2 class="h2-class"> This is heading 2 </h2>
 
 <script>
+//window относится к браузеру
+//document объект представляющий собой ДОМ дерево
+//document.getElementById('hello')
 
+/*let heading = document.getElementById('hello');
+console.dir(heading.id);
+console.dir(heading.textContent);
+heading.textContent = 'changed from Js'
+heading.style.color = 'red';
+heading.style.textAlign = 'center';
+heading.style.backgroundColor = '#010101'
+heading.style.padding = '2rem';*/
 
+let heading = document.getElementById('hello');
+setTimeout(() => {
+    addStylesTo(heading);
+}, 2000)
 
+function addStylesTo(node) {
+    node.textContent = 'changed from Js'
+    node.style.color = 'red';
+    node.style.textAlign = 'center';
+    node.style.backgroundColor = '#010101'
+    node.style.padding = '2rem';
+}
 
-
-
+//const heading2 = document.getElementsByTagName('h2');
+//console.log(heading2[0].textContent);
+// const heading2 = document.getElementsByName('h2-class')
+// console.log(heading2);
 
 
 
