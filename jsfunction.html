@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+hi
+
+<script>
+    /*
+    // function Declaration
+    // Можем объявить в любом месте и все будет работать
+    function first() {
+    }
+
+    // function Expression
+    // если переменная объявлена раньше чем функция, то возникнет ошибка
+    let second = function () {
+    }
+
+    // анонимные функции
+    let counter = 0;
+    const interval = setInterval( function () { //setTimeout()
+        if (counter === 5) {
+            clearInterval(interval); //clearTimeout()
+        } else {
+            console.log(++counter);
+        }
+    }, 1000)
+    */
+
+    /*
+    // стрелочные функции
+    function one(name) {
+        console.log(name);
+    }
+    one('one');
+
+    const arrow = (name) => {
+        console.log(name);
+    }
+    arrow('second');
+
+    const arrow2 = name => console.log(name);
+    arrow2('third');
+
+    // Пример
+    const pow2 = num => {
+        return num ** 2;
+    }
+    console.log(pow2(2));
+
+    const pow = num => num ** 2;
+    console.log(pow(2));
+    */
+
+    // параметры по умолчанию
+    // const sum = (a = 2, b = a * 10) => a + b;
+    // console.log(sum(3));
+    // console.log(sum(3, 56));
+    // console.log(sum());
+
+    /*
+    function sumAll(...all) {
+        let res = 0;
+        for (let num of all) {
+            res += num;
+        }
+        return res;
+    }
+    const res = sumAll(43, 4, 5, 6, 3, 3);
+    console.log(res);
+    */
+
+    // замыкания. из одной функции возвращаем другую
+    function createMember(name) {
+        return function (lastName) {
+            console.log(name + lastName);
+        }
+    }
+
+    const logWithLastName = createMember('sss ');
+    console.log(logWithLastName('aaaa'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

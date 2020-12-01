@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+hi
+<script>
+
+/*const timeout = setTimeout(() => {
+    console.log('timeout')
+}, 2500)
+clearTimeout(timeout); //если раскомментировать то функция не выполнится
+
+
+const interval = setInterval(() => {
+    console.log('timeout')
+}, 2500)
+clearInterval(interval); //если раскомментировать то функция не выполнится
+
+
+const delay = (callback, wait = 1000) => {
+    setTimeout(callback, wait);
+}
+
+delay(() => {
+    console.log('after 2 seconds');
+}, 2000);*/
+
+const delay = (wait = 1000) => {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('nonon');
+            resolve();
+        }, wait)
+    })
+    return promise;
+}
+
+delay(2500)
+    .then(() => {
+        console.log('after 2 seconds')
+    })
+    .catch(err => console.error('err: ', err))
+    .finally(() => console.log('finally'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    const cars = ['audi', 'bmw', 'kia'];
+
+
+    //cars.push('lada') // добавление нового элемента в конец
+    //cars.unshift('volga'); // добавление нового элемента в начало
+    //console.log(cars);
+
+    //cars.shift() // удаление первого элемента из массива и возвращает его
+    //cars.pop() // удаление последнего элемента из массива и возвращает его
+
+    //cars.reverse();
+    //console.log(cars);
+
+    //console.log(cars.indexOf('kia'));
+
+    /*const peoples = [
+        {name: 'name1', age: 12},
+        {name: 'name2', age: 42},
+        {name: 'name3', age: 34},
+    ]*/
+
+    /*const index = peoples.findIndex(function (people) {
+        //console.log(person);
+        return people.age === 42;
+    })
+    console.log(peoples[index]);
+
+
+    // pers и pers1 одно и то же
+    const pers = peoples.find(function (person) {
+        return person.age === 12;
+    })
+    console.log(pers);
+    const pers1 = peoples.find(person =>person.age === 12);
+    console.log(pers1)*/
+
+    // console.log(cars.includes('kia'));
+
+
+    /*
+    // задача
+    const text = 'Hello, JavaScript';
+    const reverseText = text.split('').reverse().join('');
+    console.log(reverseText);*/
+
+
+
+    /*const fib = [1, 1, 2, 3, 5, 8, 13];
+
+    const pow2 = num => num ** 2;
+    const sqrt = num => Math.sqrt(num);
+
+    const pow2Fib = fib.map(pow2);
+    console.log(pow2Fib);
+    console.log(pow2Fib.map(sqrt));
+
+    const filterNum = pow2Fib.filter(num => {
+        return num > 20;
+    })
+    console.log(filterNum)*/
+
+    const peoples = [
+        {name: 'name1', age: 12},
+        {name: 'name2', age: 42},
+        {name: 'name3', age: 34},
+    ]
+
+    const allAge = peoples.reduce((acc, person) => {
+        acc += person.age;
+        return acc;
+    }, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

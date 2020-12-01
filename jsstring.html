@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // const name = 'a';
+    // console.log(typeof name);
+
+    // let name = 'telecontact';
+    // let age = 15;
+    // function getAge() {
+    //     return age;
+    // }
+
+    //let output = `my name is ${name}, i am ${getAge()}`;
+    //let output1 = `my name is ${name}, i am ${age < 20 ? 'a' : 'b'}`;
+    //console.log(output1);
+
+
+    // const outp = `
+    // <div> This is div </div>
+    // <p> this </p>`
+    // console.log(outp);
+    // console.log(outp.length)
+    // console.log(outp.toUpperCase())
+    // console.log(outp.charAt(3))
+    // console.log(outp.indexOf('T'))
+    // console.log(outp.endsWith('>'))
+    // console.log(outp.repeat(3))
+    //
+    //
+    // const str = '            password            ';
+    // console.log(str.trim());
+    // console.log(str.trimLeft());
+    // console.log(str.trimRight());
+
+
+    function logPerson(s, name, age) {
+        if (age < 13) {
+            age = 'nononon';
+        }
+        return `${s[0]}${name}${s[1]}${age}${s[2]}`;
+    }
+    let personName = 'asd';
+    let personAge = 12;
+
+    const outp = logPerson`name: ${personName}, age: ${personAge}`;
+    console.log(outp);
+
+
+
+</script>
+
+</body>
+</html>

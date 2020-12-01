@@ -43,7 +43,8 @@ console.log(typeof 9007199254740991239999n) // bigint
 console.log(9007199254740991239999n - 900719925474099123999n) // bigint
 
 //console.log(10n - 4) // err
-console.log(parseInt('23') - 4) // err*/
+console.log(parseInt('23') - 4) // err
+console.log(10n - BigInt(4)) // err*/
 
 //Math
 console.log(Math.PI)
