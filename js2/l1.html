@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+/*
+const person = {
+    name: 'Max',
+    age: 21,
+    greet: function () {
+        console.log('greet');
+    },
+}
+
+Object.prototype.sayHello = function () {
+    console.log('hello');
+}
+
+
+const lena = Object.create(person);
+lena.name = 'elena';
+
+const str = 'this is string';
+//const str = new String('this is string'); // Это происходит за кулисами
+*/
+
+
+// контекст
+// this указывает на тот объект в контексте которого вызывается функция, то что стоит слева от .hello()
+// function hello() {
+//     console.log('hello', this); // указывает на текущий контекст
+// }
+// hello(); // по сути это window.hello()
+//
+// const person = {
+//     name: 'max',
+//     age: 21,
+//     sayHello: hello,
+//     sayHelloWindow: hello.bind(window), // bind фиксирует this
+// }
+// console.log(person.sayHello());
+//
+//
+// const person2 = {
+//     name: 'max',
+//     age: 21,
+//     sayHello: hello,
+//     sayHelloWindow: hello.bind(window), // bind фиксирует this
+//     logInfo: function (job, phone) {
+//         console.group(`${this.name} info`);
+//         console.log(`Name is ${this.name}`); // == ${person2.age}
+//         console.log(`age is ${this.age}`);
+//         console.log(`Job is ${job}`);
+//         console.log(`Phone is ${phone}`);
+//         console.groupEnd();
+//     }
+// }
+//
+// const lena = {
+//     name: 'Elena',
+//     age: 20,
+// }
+//
+// // При вызове метода logInfo объекта персон2, мы передали в контекст объект лена
+// // и this указывает на тот контекст который передали
+// //const fnLenaInfoLog = person2.logInfo.bind(lena);
+// //fnLenaInfoLog('medic', 233498);
+//
+// person2.logInfo.bind(lena, 'medic', 233498)();
+// //const fnLenaInfoLog = person2.logInfo.bind(lena, 'medic', 233498);
+// //fnLenaInfoLog();
+//
+//
+// // Метод call кроме того что задает некоторый контекст функции, и какие то параметры, сразу же вызывает эту функцию
+// // bind() же возвращает новую функцию и мы вызываем ее когда нам удобно
+// // person2.logInfo.call(lena, 'medic', 233498);
+//
+// // метод apply всегда передаем 2 параметра т.е все остальные параметры должны быть в массиве.
+// // так же как и call сразу вызовет функцию. call и apply отличаются только методом передачи параметров
+// // person2.logInfo.apply(lena, ['medic', 233498]);
+//
+// /// ---------------
+// const array = [1, 2, 3, 4, 5];
+//
+// // не совсем удобно использовать эту функцию, т.к. приходится его импортировать. что можно сделать?
+// /*function multBy(arr, n) {
+// return arr.map(function (i) {
+//     return i * n;
+// });
+// }*/
+//
+// // добавить эту функцию в прототип (Array является прототипом array или array прототипно наследут от Аrray
+// Array.prototype.multBy = function (n) {
+//     //console.log('multBy', this);
+//     return this.map(function (i) { // тут this будет указывть на тот массив, который вызывет эту функцию
+//         return i * n;
+//     });
+// }
+// console.log(array.multBy(2));
+// //[3, 4, 1, 5].multBy(20) // так тоже можно
+//
+//
+//
+// // Замыкания
+// // По сути это функция внутри другой функции
+// function createCalcFunction(n) {
+//     return function () {
+//         console.log(100 * n);
+//     }
+// }
+// createCalcFunction(42); // ничего не произойдет, потому что на самом деле она возвращает новую функцию, поэтому можно
+// //поместить ее в новую переменную:
+// // calc функция, которую мы получаем из другой функции
+// const calc = createCalcFunction(42);
+// calc(); // 4200
+// // как это работает: когда мы вызывали функцию createCalcFunction и передавали число 42, то функция отработала
+// // и вернула новую функцию но учитывая что новая функция была вызвана в контексте createCalcFunction, то данная
+// // переменная была замкнута в той функции которую мы возвращаем. Поэтому когда мы вызываем функцию calc() в ней
+// // уже содержится значение n, функция его замкнула
+//
+//
+// function createIncrementor(n) {
+//     return function (num) {
+//         return n + num;
+//     }
+// }
+//
+// const addOne = createIncrementor(1);
+// const addTen = createIncrementor(10);
+//
+// console.log(addOne(10)); // 11
+// console.log(addOne(41)); // 42
+//
+// console.log(addTen(41)); // 51
+// console.log(addTen(10)); // 20
+//
+// function urlGen(domain) {
+//     return function (url) {
+//         return `https://${url}.${domain}`;
+//     }
+// }
+// const comUrl = urlGen('com');
+// console.log(comUrl('google')); // http://google.com
+// console.log(comUrl('www')); // http://www.com
+//
+// //----------------
+// function bind(context, fn) {
+//     return function (...args) {
+//         fn.apply(context, args);   // apply потому что не знаем сколько параметров
+//     }
+// }
+// function logPerson() {
+//     console.log(`Person: ${this.name}, ${this.age}, ${this.job}`);
+// }
+//
+// const per1 = {name: 'misha', age: 21, job: 'engineer'};
+// const per2 = {name: 'sasha', age: 42, job: 'backend'};
+//
+// bind(per1, logPerson)();
+// bind(per2, logPerson)();
+
+/*
+// Асинхронность
+console.log('start');
+
+// setTimeout не входит в спецификацию js. Он есть в браузере
+// пришла из браузерного ipi
+// первый параметр - функция, второй параметр количество миллисекунд
+window.setTimeout(function () {
+    console.log('inside timeout, after 2 seconds');
+}, 2000);
+console.log('End');
+
+function timeout5sec() {
+    console.log('time 5 sec');
+}
+window.setTimeout(timeout5sec(), 5000); // если timeout5sec() то функция выполнится сразу же и асинхронности не будет
+
+// почему программа не блокируется? дело в Event Loop
+//  | Call Stack | | Web Apis |
+//  |            | |          |
+//  |  1         | |  2       |
+//  |            | |          |
+//  |            | |          |
+//  |____________| |__________|
+//       ___
+//     (_____)  EVENT LOOP
+//  _________________
+// | Callback Queue  |
+// |       3         |
+// |_________________|
+*/
+
+
+// Promise
+// console.log('request data...');
+//
+// setTimeout(()=> {
+//     console.log('Preparing data...');
+//
+//     const backendData = {
+//         server: 'aws',
+//         port: 2000,
+//         status: 'working',
+//     }
+//
+//     setTimeout(() => {
+//         backendData.modified = true;
+//         console.log('Data received', backendData);
+//     }, 3000)
+// }, 2000)
+// однако в этом случае много вложенностей
+// поэтому есть promise
+// const p = new Promise(function (resolve, reject) { //Данные параметры сами по себе являются функциями
+//     // функция resolve выполняется тогда когда закончена асинхронная операция и закончена она успешно
+//     setTimeout(() => {
+//         console.log('Preparing data...');
+//         const backendData = {
+//             server: 'aws',
+//             port: 2000,
+//             status: 'working',
+//         }
+//         resolve(backendData) // говорим что асинхронная операция завершена. backendData передаем чтоб потом был доступ
+//     }, 2000);
+// })
+
+// перемення р является промисом и у нее есть свои методы. p.then() = когда выполнится промис р
+// p.then(data => {  // выполнится тогда когда вызовется функция resolve()
+//     //console.log('Promise resolved', data);
+//     const p2 = new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             data.modified = true;
+//             resolve(data);
+//         }, 2000)
+//     })
+//
+//     p2.then(clientData => {
+//         console.log('Data received', clientData)
+//     })
+// })
+/*
+
+p.then(data => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            data.modified = true;
+            resolve(data); // reject - ошибка
+        }, 2000)
+    })
+})
+  .then(clientData => {
+      clientData.fromPromise = 'yess';
+      return clientData;
+})
+  .then(data => {
+      console.log('Modified', data);
+  })
+  .catch(err => console.error('Error', err))
+  .finally(() => console.log('Finally'))
+*/
+
+
+// эта запись
+const sleep = ms => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), ms);
+    });
+};
+//sleep(2000).then(()=> console.log('After 2 sec'));
+
+// аналогично этой записи
+const test = function(ms) {
+    return new Promise(function (resolve) {
+        setTimeout(function () {
+            resolve();
+        }, ms)
+    })
+}
+//test(5000).then(function () {
+//    console.log('5 sec');
+//})
+
+
+Promise.all([sleep(4000), test(1000)]).then(() => { // не сработает пока не выполнятся все промисы
+    console.log('All promises');
+})
+Promise.race([sleep(4000), test(1000)]).then(() => {  // выполнится сразу после выполнения первого промиса
+    console.log('Race promises');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

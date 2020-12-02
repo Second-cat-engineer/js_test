@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box1"> box </div>
+<div id="selector"> box </div>
+
+
+
+<script>
+
+/*
+// создание объекта через глабальный объект Object.create
+// При создании объекта таким образом нельзя будет проходить по свойствам циклом (по умолчанию)
+const person = Object.create(
+    {
+        // прототипы. однако в цикле также будет пробегаться по этому элементу, чтоб этого не было нежно в цикле указать
+    },
+    {
+        name: {
+            value: 'asdf',
+            enumerable: true, // в этом случае можно пройтись циклом по этому свойству
+            writable: true,  // в таком случае можно менять значение этого свойства
+            configurable: true // в таком случае можно удалять свойство объекта
+        },
+        birthYear: {
+            value: 2016,
+            enumerable: false, // это свойство не будет видно при прохождении объекта циклом
+            writable: false, // нельзя менять значение данного свойства
+            configurable: false,
+        },
+        age: {
+            get() {
+                //return 'hello';
+                return new Date().getFullYear() - this.birthYear;
+            },
+            set(value) {
+                console.log('Set age', value);
+                document.body.style.background = 'red';
+            }
+        }
+    }
+)
+console.log(person.name);
+console.log(person);
+
+for (let key in person) {
+    if (person.hasOwnProperty(key)) {
+        console.log('key', key, person[key])
+    }
+}
+
+person.name = 'qwerty'; // изменится значение свойства
+console.log(person.name);
+person.birthYear = 1992; // не поменяет
+console.log(person.birthYear);
+*/
+
+// классы
+// const animal = {
+//     name: 'animal',
+//     age: 5,
+//     hasTail: true,
+// }
+
+// class Animal {
+//     static type = 'ANIMAL' // если переменная или функция является статической, то она доступна только у самого класса
+//
+//     constructor(options) {
+//         this.name = options.name;
+//         this.age = options.age;
+//         this.hasTail = options.hasTail;
+//     }
+//     voice() {
+//         console.log('I am animal!');
+//     }
+// }
+// const an = new Animal({
+//     name: 'Animfl',
+//     age: 5,
+//     hasTail: true,
+// })
+//
+// class Cat extends Animal {
+//     static type = 'CAT';
+//
+//     constructor(options) {
+//         super(options);
+//         this.color = options.color;
+//     };
+//
+//     voice() {
+//         super.voice(); // в этом случае расширяется родительский метод и перетирания не будет
+//         console.log('I am cat');
+//     };
+//
+//     get ageInfo() {
+//         return this.age * 7;
+//     };
+//
+//     set ageInfo(newAge) {
+//         this.age = newAge;
+//     };
+// }
+//
+// const cat = new Cat({
+//     name: 'Cat',
+//     age: 7,
+//     hasTail: true,
+//     color: 'white',
+// })
+
+class Components {
+    constructor(selector) {
+        this.$el = document.querySelector(selector);
+    }
+    hide() {
+        this.$el.style.display = 'none';
+    }
+    show() {
+        this.$el.style.display = 'block'
+    }
+}
+
+class Box extends Components {
+    constructor(options) {
+        super(options.selector);
+        this.$el.style.width = this.$el.style.height = options.size + 'px';
+        this.$el.style.background = options.color;
+    }
+}
+
+const box1 = new Box({
+    selector: '#box1',
+    size: 100,
+    color: 'red',
+})
+
+class Circle extends Box {
+    constructor(options) {
+        super(options);
+
+        this.$el.style.borderRadius = '50%';
+    }
+}
+
+const c = new Circle({
+    selector: '#selector',
+    size: 90,
+    color: 'green',
+})
+
+
+let x = prompt('title');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
