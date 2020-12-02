@@ -6,7 +6,8 @@
 </head>
 <body>
     <h1 id="hello" class="sss">hi</h1>
-    <h2 class="h2-class"> This is heading 2 </h2>
+    <h2 id="h2-id" class="h2-class"> This is heading 2 </h2>
+    <h2><a href="http://google.com" target="_blank"> another h2  </a></h2>
 
 <script>
 //window относится к браузеру
@@ -24,21 +25,88 @@ heading.style.padding = '2rem';*/
 
 let heading = document.getElementById('hello');
 setTimeout(() => {
-    addStylesTo(heading);
+    addStylesTo(heading, 'this is title');
 }, 2000)
 
-function addStylesTo(node) {
-    node.textContent = 'changed from Js'
-    node.style.color = 'red';
+function addStylesTo(node, text, fontSize = 'red') {
+    node.textContent = text;
+    node.style.color = 'yellow';
     node.style.textAlign = 'center';
-    node.style.backgroundColor = '#010101'
+    node.style.backgroundColor = '#999999'
     node.style.padding = '2rem';
+
+    // falsy: '', undefuned, null, 0, false;
+    if (fontSize) {
+        node.style.fontSize = fontSize;
+    }
 }
 
-//const heading2 = document.getElementsByTagName('h2');
-//console.log(heading2[0].textContent);
-// const heading2 = document.getElementsByName('h2-class')
-// console.log(heading2);
+/*const head = document.getElementsByTagName('h2');
+console.log(head[0].textContent);
+const asdf = document.getElementsByName('h2-class')[0]
+console.log(asdf);*/
+
+const head = document.querySelector('h2'); // возвращает всегда первый попавшийся элемент
+const head1 = document.querySelector('.h2-class'); // по классу
+const head2 = document.querySelector('#h2-id'); // по id
+console.log(head);
+console.log(head1);
+console.log(head2);
+
+console.dir(head2);
+
+const h2List = document.querySelectorAll('h2');
+console.log(h2List)
+
+let head3 = h2List[h2List.length - 1];
+console.log(head3);
+/*
+
+setTimeout(() => {
+    addStylesTo(head3, 'this is body', 'blue');
+}, 2000)
+*/
+
+
+heading.onclick = () => {
+    if (heading.style.color === 'red') {
+        heading.style.color = '#000';
+        heading.style.backgroundColor = '#fff';
+    } else {
+        heading.style.color = 'red';
+        heading.style.backgroundColor = '#000';
+    }
+}
+
+head3.addEventListener('dblclick', () => {
+    if (head3.style.color === 'red') {
+        head3.style.color = '#000';
+        head3.style.backgroundColor = '#fff';
+    } else {
+        head3.style.color = 'red';
+        head3.style.backgroundColor = '#000';
+    }
+})
+
+setTimeout(() => {
+    //addStylesTo(head3.querySelector('a'), 'this is body', 'blue');
+    addStylesTo(head3.children[0], 'this is body', 'blue');
+}, 2000)
+
+// const link = head3.querySelector('a');
+// link.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     console.log('click in link', event.target.getAttribute('href'));
+// });
+
+const link = head3.querySelector('a');
+link.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log('click in link', event.target.getAttribute('href'));
+    window.location = event.target.getAttribute('href');
+});
+
+
 
 
 
